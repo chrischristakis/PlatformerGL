@@ -15,17 +15,6 @@ import ca.chrischristakis.pgl.scene.Scene;
 
 public class Main implements Runnable
 {
-
-	/*/
-	 * TODO:
-	 * -FIx movement:
-	 * 	-terminal velocity
-	 * 	-Proper hitboxes that dont overlap
-	 * 
-	 * Bugs:
-	 * 
-	 *-Collision snapping.
-	/*/
 	
 	/*
 	 * Learned:
