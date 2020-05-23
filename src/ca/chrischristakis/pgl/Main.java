@@ -39,6 +39,7 @@ public class Main implements Runnable
 	 * -Make a renderer class! renderer.renderQuad, renderer.renderTriangle etc. Uses batch method.
 	 * -Save level data upside down if possible (left up or left down.) since y = 0 at beginning in level loader
 	 * -Overhaul the entire level system. Confusing unintuitive mess right now
+	 * -Use GL_CLAMP_TO_EDGE when using alpha values, because GL_REPEAT interpolates with the colours around it. LearnOpengl speaks on this better
 	 */
 	
 	public static final int WIDTH = 1100, HEIGHT = 900;

@@ -1,10 +1,7 @@
 package ca.chrischristakis.pgl.scene;
 
-import java.util.ArrayList;
-
 import org.joml.Vector2f;
 
-import ca.chrischristakis.pgl.scene.entities.Block;
 import ca.chrischristakis.pgl.scene.entities.DefaultBlock;
 import ca.chrischristakis.pgl.scene.entities.EndBlock;
 import ca.chrischristakis.pgl.scene.entities.Player;
@@ -17,8 +14,6 @@ public class Level
 	int tileDim = 100;
 	
 	Vector2f spawn;
-	
-	ArrayList<Block> tiles = new ArrayList<Block>();
 	
 	Player p;
 	
@@ -50,7 +45,7 @@ public class Level
 		
 		String old = levelData;
 		levelData = "";
-		for(int i = 1; i < old.length(); i++)
+		for(int i = 0; i < old.length(); i++)
 		{
 			if(old.charAt(i) != ',')
 				levelData += old.charAt(i);
@@ -59,7 +54,6 @@ public class Level
 		int x = 0, y = height;
 		for(int i = 0; i < levelData.length(); i++)
 		{
-			x = i % width;
 			if(levelData.charAt(i) == '1')
 				em.add(new DefaultBlock(x*tileDim, y*tileDim, tileDim, tileDim));
 			if(levelData.charAt(i) == '2')
@@ -72,8 +66,8 @@ public class Level
 			{
 				em.add(new EndBlock(x*tileDim+30, y*tileDim+30, tileDim-60, tileDim-60));
 			}
-			if(i % height == 0)
-				y--;
+			x++;
+			if(x % width == 0) {x=0;y--;}
 		}
 	}
 	

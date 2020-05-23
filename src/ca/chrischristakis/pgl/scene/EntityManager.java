@@ -13,25 +13,30 @@ public class EntityManager
 	private ArrayList<Entity> entities = new ArrayList<Entity>();
 	
 	private Player player;
+	private Scene scene;
 	
-	public EntityManager(Player player)
+	public boolean switchingLevels = false;
+	
+	public EntityManager(Player player, Scene scene)
 	{
-		this.player = player;
+		this.player = player; this.scene = scene;
 	}
 	
 	public void update()
 	{
 		for(Entity e : entities)
 		{
+			if(switchingLevels) break;
+			
 			e.update();
 			if((player.velX > 0) && player.getRightBox().collidesWith(e))
 			{
-				player.position.x = (e.position.x - player.width + 1);
+				player.position.x = e.position.x - player.width + 1;
 				player.velX = 0;
 			}
 			if((player.velX < 0) && player.getLeftBox().collidesWith(e))
 			{
-				player.position.x = (e.position.x + e.width - 1);
+				player.position.x = e.position.x + e.width - 1;
 				player.velX = 0;
 			}
 			if((player.velY > 0) && player.getTopBox().collidesWith(e))
@@ -48,10 +53,15 @@ public class EntityManager
 			
 			if(player.collidesWith(e) && e instanceof EndBlock)
 			{
-				Main.running = false;
+				if(Scene.currentLevel + 1 == Scene.numOfLevels)
+					Main.running = false;
+				else
+					scene.nextLevel();
 			}
 		}
 		player.update();
+		
+		if(switchingLevels) scene.notifyReady();
 	}
 	
 	public void render()
@@ -59,6 +69,7 @@ public class EntityManager
 		player.render();
 		for(Entity e : entities)
 		{
+			if(switchingLevels) break;
 			e.render();
 		}
 	}

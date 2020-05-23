@@ -6,7 +6,6 @@ import org.lwjgl.glfw.GLFW;
 import ca.chrischristakis.pgl.Main;
 import ca.chrischristakis.pgl.gl.ShaderProgram;
 import ca.chrischristakis.pgl.input.KeyInput;
-import ca.chrischristakis.pgl.scene.entities.DefaultBlock;
 import ca.chrischristakis.pgl.scene.entities.Player;
 
 public class Scene 
@@ -20,12 +19,15 @@ public class Scene
 	
 	private EntityManager em;
 	private Camera camera;
-	private Level[] levels = new Level[2];
+	private Level[] levels;
 	
-	public static int currentLevel = 0;
+	public static int currentLevel = 0, numOfLevels = 3;
+	
+	private String[] levelNames = {"level1.ctmx","level2.ctmx","level3.ctmx"};
 	
 	public Scene()
 	{
+		levels = new Level[numOfLevels];
 		projection = new Matrix4f().ortho(0.0f, Main.WIDTH, 0.0f, Main.HEIGHT, -10.0f, 10.0f); //should always be the first line.
 		view = new Matrix4f();
 		
@@ -34,11 +36,11 @@ public class Scene
 		hitboxShader = new ShaderProgram("player.vert", "hitbox.frag");
 		
 		player = new Player(0, 0, 50, 100);
-		em = new EntityManager(player);
+		em = new EntityManager(player, this);
 		
 		camera = new Camera(player);
-		levels[0] = new Level();
-		levels[0].loadLevelFromCXMT(player, em, "level1.ctmx");
+		levels[currentLevel] = new Level();
+		levels[currentLevel].loadLevelFromCXMT(player, em, levelNames[currentLevel]);
 		camera.zoom(-50);
 	}
 	
@@ -68,6 +70,21 @@ public class Scene
 	{
 		em.clear();
 		player.destory();
+	}
+	
+	public void nextLevel()
+	{
+		currentLevel++;
+		em.switchingLevels = true;
+	}
+	
+	//Notify that the scene is ready to switch levels.
+	public void notifyReady()
+	{
+		em.clear();
+		levels[currentLevel] = new Level();
+		levels[currentLevel].loadLevelFromCXMT(player, em, levelNames[currentLevel]);
+		em.switchingLevels = false;
 	}
 	
 	public void triggerTest(boolean v)

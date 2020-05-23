@@ -4,7 +4,6 @@ in vec2 tc;
 
 uniform sampler2D tex;
 uniform bool testing;
-uniform bool collided;
 
 out vec4 FragCol;
 
