@@ -20,7 +20,7 @@ public class Texture
 		ByteBuffer imgData = null;
 		try
 		{
-			imgData = loadImage(path);
+			imgData = loadImage("assets/" + path);
 		}
 		catch(RuntimeException e)
 		{

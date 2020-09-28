@@ -41,7 +41,7 @@ public class Scene
 		
 		camera = new Camera(player);
 		levels[currentLevel] = new Level();
-		levels[currentLevel].loadLevelFromCXMT(player, em, levelNames[currentLevel]);
+		levels[currentLevel].loadLevelFromCXMT(player, em, "assets/" + levelNames[currentLevel]);
 		camera.zoom(-50);
 	}
 	
