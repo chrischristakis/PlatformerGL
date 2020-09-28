@@ -7,7 +7,7 @@ custom level formats, cameras, and various other things into a game rendered usi
 my first real test of abstracting away the OGL and integrating game logic along with it. Due to this, expect
 to find some confusing code. It certainly taught me many lessons, which I will carry onto future projects.
 ## Demonstration:
-<img src="demo.gif" width = "500"></img>
+<img src="misc/demo.gif" width = "500"></img>
 ## Controls:
 - Left: A
 - Right: D
