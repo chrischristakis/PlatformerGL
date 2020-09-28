@@ -9,7 +9,7 @@ import ca.chrischristakis.pgl.scene.Scene;
 public class Player extends Creature
 {
 	
-	public boolean jumping;
+	public boolean jumping, falling;
 	private Hitbox topbox, botbox, leftbox, rightbox;
 	public boolean isDead;
 	
@@ -32,7 +32,7 @@ public class Player extends Creature
 			velX -= 0.5f;
 		if(KeyInput.isPressed(GLFW.GLFW_KEY_D))
 			velX += 0.5f;
-		if(KeyInput.isPressed(GLFW.GLFW_KEY_SPACE) && !jumping)
+		if(KeyInput.isPressed(GLFW.GLFW_KEY_SPACE) && !jumping && !falling)
 		{
 			jumping = true;
 			velY = 10.0f;
@@ -87,10 +87,10 @@ public class Player extends Creature
 		textureBox.render(Scene.playerShader);
 		texture.unbind();
 		
-		topbox.render();
-		leftbox.render();
-		botbox.render();
-		rightbox.render();
+		//topbox.render();
+		//leftbox.render();
+		//botbox.render();
+		//rightbox.render();
 	}
 
 }

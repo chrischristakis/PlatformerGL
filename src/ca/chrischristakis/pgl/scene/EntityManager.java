@@ -26,6 +26,7 @@ public class EntityManager
 	
 	public void update()
 	{
+		player.falling = true;
 		for(Entity e : entities)
 		{
 			if(switchingLevels) break;
@@ -70,6 +71,9 @@ public class EntityManager
 			{
 				player.isDead = true;
 			}
+			
+			if(player.getBotBox().collidesWith(e))
+				player.falling = false;
 		}
 		player.update();
 		
