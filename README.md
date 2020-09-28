@@ -8,6 +8,11 @@ my first real test of abstracting away the OGL and integrating game logic along 
 to find some confusing code. It certainly taught me many lessons, which I will carry onto future projects.
 ## Demonstration:
 <img src="misc/demo.gif" width = "500"></img>
+## Notes:
+Please note that the game has no text, so there isn't a score or level counter. If you beat the game, the game simply terminates. 
+I added text in my following project, SpaceSHUMPGL, since I had a batch renderer for that one. I'm going to work on 
+a 2D text library for OpenGL so I can easily add text into my programs going forward, perhaps this one will get a slught revamp
+when that happens.
 ## Controls:
 - Left: A
 - Right: D
