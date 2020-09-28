@@ -1,5 +1,5 @@
 # PlatformerGL
-<img src="demoImg.PNG" width = "500"></img>
+<img src="misc/demoImg.PNG" width = "500"></img>
 ## Purpose:
 The purpose of this project was to create a simple prototype for a platformer, my first real test 
 to see if I can implement some game mechanics such as levels, basic physics, entities, entity managers,
