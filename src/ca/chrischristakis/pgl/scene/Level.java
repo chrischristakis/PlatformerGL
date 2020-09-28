@@ -2,9 +2,11 @@ package ca.chrischristakis.pgl.scene;
 
 import org.joml.Vector2f;
 
+import ca.chrischristakis.pgl.scene.entities.BounceBlock;
 import ca.chrischristakis.pgl.scene.entities.DefaultBlock;
 import ca.chrischristakis.pgl.scene.entities.EndBlock;
 import ca.chrischristakis.pgl.scene.entities.Player;
+import ca.chrischristakis.pgl.scene.entities.SpikeBlock;
 import ca.chrischristakis.pgl.utils.FileUtils;
 
 public class Level 
@@ -65,6 +67,14 @@ public class Level
 			if(levelData.charAt(i) == '3')
 			{
 				em.add(new EndBlock(x*tileDim+30, y*tileDim+30, tileDim-60, tileDim-60));
+			}
+			if(levelData.charAt(i) == '4')
+			{
+				em.add(new BounceBlock(x*tileDim, y*tileDim, tileDim, tileDim));
+			}
+			if(levelData.charAt(i) == '5')
+			{
+				em.add(new SpikeBlock(x*tileDim, y*tileDim, tileDim, tileDim));
 			}
 			x++;
 			if(x % width == 0) {x=0;y--;}

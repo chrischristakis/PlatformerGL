@@ -21,12 +21,13 @@ public class Scene
 	private Camera camera;
 	private Level[] levels;
 	
-	public static int currentLevel = 0, numOfLevels = 3;
+	public static int currentLevel = 0, numOfLevels;
 	
-	private String[] levelNames = {"level1.ctmx","level2.ctmx","level3.ctmx"};
+	private String[] levelNames = {"level1.ctmx","level2.ctmx","level3.ctmx", "level4.ctmx", "level5.ctmx"};
 	
 	public Scene()
 	{
+		numOfLevels = levelNames.length;
 		levels = new Level[numOfLevels];
 		projection = new Matrix4f().ortho(0.0f, Main.WIDTH, 0.0f, Main.HEIGHT, -10.0f, 10.0f); //should always be the first line.
 		view = new Matrix4f();
@@ -54,8 +55,11 @@ public class Scene
 	
 	public void update()
 	{
-		if(player.position.y < 0)
+		if(player.position.y < 0 || player.isDead)
+		{
+			player.isDead = false;
 			levels[currentLevel].reset();
+		}
 		
 		if(KeyInput.isPressed(GLFW.GLFW_KEY_Z))
 			camera.zoom(50);

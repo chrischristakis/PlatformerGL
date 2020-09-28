@@ -14,4 +14,5 @@ void main()
 	else
 		FragCol = vec4(1.0, 1.0, 1.0, 1.0);
 
+	if(FragCol.w < 1.0) discard;
 }

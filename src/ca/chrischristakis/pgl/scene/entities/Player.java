@@ -11,6 +11,7 @@ public class Player extends Creature
 	
 	public boolean jumping;
 	private Hitbox topbox, botbox, leftbox, rightbox;
+	public boolean isDead;
 	
 	public Player(float x, float y, float width, float height) 
 	{
@@ -40,8 +41,8 @@ public class Player extends Creature
 		if(!KeyInput.isPressed(GLFW.GLFW_KEY_A) && !KeyInput.isPressed(GLFW.GLFW_KEY_D))
 			velX = velX *= 0.8f;
 		
-		if(Math.abs(velY) >= 15.0f)
-			velY = 15.0f * (velY)/Math.abs(velY);
+		if(velY <= -15.0f)
+			velY = -15.0f;
 		if(Math.abs(velX) >= 15.0f)
 			velX = 15.0f * (velX)/Math.abs(velX);
 		

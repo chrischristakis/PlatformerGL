@@ -75,7 +75,7 @@ public class Main implements Runnable
 		glEnable(GL_DEPTH_TEST);
 		glActiveTexture(GL_TEXTURE0);
 		
-		//glfwSwapInterval(1);
+		glfwSwapInterval(1);
 
 		glfwShowWindow(window);
 		

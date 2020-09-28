@@ -3,9 +3,11 @@ package ca.chrischristakis.pgl.scene;
 import java.util.ArrayList;
 
 import ca.chrischristakis.pgl.Main;
+import ca.chrischristakis.pgl.scene.entities.BounceBlock;
 import ca.chrischristakis.pgl.scene.entities.EndBlock;
 import ca.chrischristakis.pgl.scene.entities.Entity;
 import ca.chrischristakis.pgl.scene.entities.Player;
+import ca.chrischristakis.pgl.scene.entities.SpikeBlock;
 
 public class EntityManager
 {
@@ -57,6 +59,16 @@ public class EntityManager
 					Main.running = false;
 				else
 					scene.nextLevel();
+			}
+			
+			if(player.collidesWith(e) && e instanceof BounceBlock)
+			{
+				player.velY = 20.0f;
+			}
+			
+			if(player.collidesWith(e) && e instanceof SpikeBlock)
+			{
+				player.isDead = true;
 			}
 		}
 		player.update();
