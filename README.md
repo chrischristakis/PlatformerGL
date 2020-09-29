@@ -15,6 +15,7 @@ a 2D text library for OpenGL so I can easily add text into my programs going for
 when that happens.
 ## Usage:
 To demo the product, download the repository as a zip and navigate to the "pgl-exe.zip" file. Unzip it, then within it, run the pgl.jar file.
+If you have trouble running the jar, try running it from console by typing "java -jar pgl.jar" in the same directory as the jar.
 ## Controls:
 - Left: A
 - Right: D
