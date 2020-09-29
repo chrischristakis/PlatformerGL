@@ -87,7 +87,7 @@ public class Scene
 	{
 		em.clear();
 		levels[currentLevel] = new Level();
-		levels[currentLevel].loadLevelFromCXMT(player, em, levelNames[currentLevel]);
+		levels[currentLevel].loadLevelFromCXMT(player, em, "assets/" + levelNames[currentLevel]);
 		em.switchingLevels = false;
 	}
 	
