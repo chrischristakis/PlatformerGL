@@ -14,7 +14,7 @@ I added text in my following project, SpaceSHUMPGL, since I had a batch renderer
 a 2D text library for OpenGL so I can easily add text into my programs going forward, perhaps this one will get a slught revamp
 when that happens.
 ## Usage:
-To demo the product, download the repository as a zip and navigate to the "pgl-exe.zip" file. Unzip it, then within it, run the pgl.jar file.
+To demo the product, got to releases and navigate to the "pgl.zip: file. Unzip it, then within it, run the pgl.jar file.
 If you have trouble running the jar, try running it from console by typing "java -jar pgl.jar" in the same directory as the jar.
 <b>Make sure you unzip the file first before running the jar,
   otherwise the resources will not load.</b>
